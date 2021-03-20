@@ -21,30 +21,20 @@ This API offers standard CRUD operations (Create, Read, Update, Delete) to a fro
 
 API End Points for "ChildrensBookList"
 
-|           URI           |      HTTP Verb      |      Operation      |       Description       |     Success     |     Failure     |    
-|-------------------------|---------------------|---------------------|-------------------------|-----------------|-----------------|
-|        /api/books       |         GET	        |        READ         |    Read all resources   |      200 OK     | 400 Bad Request |
-
-
-                                                                                             404 Not Found
-                                                                                             
-/api/books/{id}	    GET	        READ	    Read a single resource	         200 OK	         400 Bad Request
-                                                                                             404 Not Found
-                                                                                             
-/api/books	        POST	    CREATE	    Create a new resource	         201 Created	 400 Bad Request
-                                                                                             405 Not Allowed
-                                                                                             
-/api/books/{id}	    PUT	        UPDATE	    Update an entire resource	     204 No Content  400 Bad Request
-                                                                                             405 Not Allowed
-                                                                                             
-/api/books/{id}	    PATCH	    UPDATE	    Update a resource partially	     204 No Content	 400 Bad Request
-                                                                                             405 Not Allowed
-                                                                                              
-/api/books/{id}	    DELETE	    DELETE	    Delete a single resource	     200 OK          400 Bad Request
-                                                                             204 No Content	 405 Not Allowed
-                                                                             
-*************************************************************************************************************
-                                                                             
+|         URI        | HTTP Verb |  Operation |          Description          |      Success      |      Failure      |
+|--------------------|-----------|------------|-------------------------------|-------------------|-------------------|
+|     /api/books     |    GET    |    READ    |      Read all resources       |      200 OK       |  400 Bad Request  |
+|                    |           |            |                               |                   |   404 Not Found   |
+|   /api/books/{id}  |    GET    |    READ    |    Read a single resource     |      200 OK       |  400 Bad Request  |
+|                    |           |            |                               |                   |   404 Not Found   |
+|     /api/books     |    POST   |   CREATE   |     Create a new resource     |    201 Created    |  400 Bad Request  |
+|                    |           |            |                               |                   |  405 Not Allowed  |
+|   /api/books/{id}  |    PUT    |   UPDATE   |   Update an entire resource   |   204 No Content  |  400 Bad Request  |
+|                    |           |            |                               |                   |  405 Not Allowed  |
+|   /api/books/{id}  |   PATCH   |   UPDATE   |  Update a resource partially  |   204 No Content  |  400 Bad Request  |
+|                    |           |            |                               |                   |  405 Not Allowed  |
+|   /api/books/{id}  |   DELETE  |   DELETE   |   Delete a single resource    |       200 OK      |  400 Bad Request  |
+|                    |           |            |                               |   204 No Content  |  405 Not Allowed  |
 
 This API may serve as a useful tool for teachers and educators to maintain and share a recommended book list
 between classes and schools, as well as offer suggestions for parents and students.
