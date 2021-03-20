@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "hKs1X+IARJ1SnTU9TNom011K8pnPRqmmU1PatbYjUYwjkbex2n8S4jKIlmG09uavYsVlB2CzZZ3vdSHxcRx6/g==",
+  "success": true,
+  "projectFilePath": "C:\\cygwin\\home\\dvanaria\\Dropbox\\darron\\compsci\\sandbox\\github_hosted_projects\\childrens_book_list\\ChildrensBookList\\ChildrensBookList.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dvanaria\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\dvanaria\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\dvanaria\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\dvanaria\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\dvanaria\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\dvanaria\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
