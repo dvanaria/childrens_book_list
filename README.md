@@ -18,13 +18,14 @@ via JSON payloads back to the consumer.
 
 This API offers standard CRUD operations (Create, Read, Update, Delete) to a front-end consumer application.
 
-----------------------------------------------------------------------------------------------------------------------
-|                                     API End Points for "ChildrensBookList"	                                     |
-----------------------------------------------------------------------------------------------------------------------
-|                                                                                                                    |
-|-----------URI-----------|------HTTP Verb------|------Operation------|-------Description-------|-----Success-----|-----Failure-----|
-|
+
+API End Points for "ChildrensBookList"
+
+|           URI           |      HTTP Verb      |      Operation      |       Description       |     Success     |     Failure     |    
+|-------------------------|---------------------|---------------------|-------------------------|-----------------|-----------------|
 |        /api/books       |         GET	        |        READ         |    Read all resources   |      200 OK     | 400 Bad Request |
+
+
                                                                                              404 Not Found
                                                                                              
 /api/books/{id}	    GET	        READ	    Read a single resource	         200 OK	         400 Bad Request
