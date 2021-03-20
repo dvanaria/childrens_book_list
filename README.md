@@ -1,5 +1,6 @@
 # childrens_book_list
-ASP.NET Core REST API to provide and maintain a list of recommended children's books, ages 5 to 14.
+An ASP.NET Core REST API to provide and maintain a list of recommended children's books to foster the 
+intellectual growth and development of children ages 5 to 14.
 
 Each Book resource includes the following information:
 
@@ -10,18 +11,44 @@ Each Book resource includes the following information:
     Number of Pages
     Reading Age
     Grade Level
-
-This API offers standard CRUD operations (Create, Read, Update, Delete) to a front-end consumer application. 
-
-The main purpose of the application is to maintain a list of highly recommended books to foster the growth and development of children ages 5 to 14.
-
-
     
+API services are accessible to the client by mapping a combination of a specific URI segment along with its 
+corresponding HTTP Request code, as shown in the table below. Resources (book information) are delivered 
+via JSON payloads back to the consumer.
 
-•	The first GET request just gets a list of all the command line parameters in our backend
-•	you can call it and see the JSON payload
-•	The POST is used to create new commands with our API
-•	The second GET is used to get an existing individual command based on it's ID
-•	The PUT is to update a command or an entire command resource
-•	the PATCH is to patch an existing command or resource
-•	the DELETE is to remove a command or resource
+This API offers standard CRUD operations (Create, Read, Update, Delete) to a front-end consumer application.
+
+*************************************************************************************************************
+API End Points for "ChildrensBookList"					
+*************************************************************************************************************
+					
+URI                 HTTP Verb	Operation	Description	                     Success	     Failure
+
+/api/books	        GET	        READ	    Read all resources	             200 OK	         400 Bad Request
+                                                                                             404 Not Found
+                                                                                             
+/api/books/{id}	    GET	        READ	    Read a single resource	         200 OK	         400 Bad Request
+                                                                                             404 Not Found
+                                                                                             
+/api/books	        POST	    CREATE	    Create a new resource	         201 Created	 400 Bad Request
+                                                                                             405 Not Allowed
+                                                                                             
+/api/books/{id}	    PUT	        UPDATE	    Update an entire resource	     204 No Content  400 Bad Request
+                                                                                             405 Not Allowed
+                                                                                             
+/api/books/{id}	    PATCH	    UPDATE	    Update a resource partially	     204 No Content	 400 Bad Request
+                                                                                             405 Not Allowed
+                                                                                              
+/api/books/{id}	    DELETE	    DELETE	    Delete a single resource	     200 OK          400 Bad Request
+                                                                             204 No Content	 405 Not Allowed
+                                                                             
+*************************************************************************************************************
+                                                                             
+
+This API may serve as a useful tool for teachers and educators to maintain and share a recommended book list
+between classes and schools, as well as offer suggestions for parents and students.
+
+API created and maintained by Darron Vanaria
+dvanaria@gmail.com
+
+
