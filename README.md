@@ -22,7 +22,7 @@ This API offers standard CRUD operations (Create, Read, Update, Delete) to a fro
 API End Points for "ChildrensBookList"					
 *************************************************************************************************************
 					
-URI                 HTTP Verb	Operation	Description	                     Success	     Failure
+URI			HTTP Verb	Operation	Description	                     Success	     Failure
 
 /api/books	        GET	        READ	    Read all resources	             200 OK	         400 Bad Request
                                                                                              404 Not Found
