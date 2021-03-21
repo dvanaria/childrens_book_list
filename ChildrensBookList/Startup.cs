@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ChildrensBookList.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,7 +29,20 @@ namespace ChildrensBookList
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDbContext<ChildrensBookListContext>(opt => opt.UseSqlServer
+                (Configuration.GetConnectionString("ChildrensBookListConnection")));
+
+
             services.AddControllers();
+ 
+            // This is where the actual repository is registered.
+            // So wherever the repo interface is used to access the repository,
+            // the registered repo implementation will be called.
+            // This is used by the Dependency Injection system.
+            
+                //services.AddScoped<IChildrensBookListRepo, MockChildrensBookListRepo>();
+                services.AddScoped<IChildrensBookListRepo, SqlChildrensBookListRepo>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ChildrensBookList", Version = "v1" });
@@ -37,6 +52,8 @@ namespace ChildrensBookList
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // This middle-ware needs to be installed in a particular order
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

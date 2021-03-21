@@ -1,0 +1,29 @@
+INSERT INTO dbo.Books (Title, Author, Illustrator, Year, Pages, Age, Grade)
+VALUES (
+'Charlotte''s Web',
+'E. B. White',
+'Garth Williams',
+1952,
+192,
+8,
+3);
+
+INSERT INTO dbo.Books (Title, Author, Illustrator, Year, Pages, Age, Grade)
+VALUES (
+'Mr. Popper''s Penguins',
+'Richard and Florence Atwater',
+'Robert Lawson',
+1938,
+139,
+6,
+1);
+
+INSERT INTO dbo.Books (Title, Author, Illustrator, Year, Pages, Age, Grade)
+VALUES (
+'The Borrowers',
+'Mary Norton',
+'Beth and Joe Krush',
+1953,
+180,
+10,
+5);
