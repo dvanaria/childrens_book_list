@@ -4,6 +4,7 @@ intellectual growth and development of children ages 5 to 14.
 
 Each Book resource includes the following information:
 
+    Id
     Title
     Author
     Illustrator
