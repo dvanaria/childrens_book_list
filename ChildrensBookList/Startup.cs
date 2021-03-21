@@ -35,6 +35,9 @@ namespace ChildrensBookList
 
             services.AddControllers();
  
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             // This is where the actual repository is registered.
             // So wherever the repo interface is used to access the repository,
             // the registered repo implementation will be called.
