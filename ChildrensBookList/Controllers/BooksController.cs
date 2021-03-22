@@ -3,6 +3,7 @@ using AutoMapper;
 using ChildrensBookList.Data;
 using ChildrensBookList.Dtos;
 using ChildrensBookList.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChildrensBookList.Controllers {
@@ -39,7 +40,7 @@ namespace ChildrensBookList.Controllers {
         }
 
         // GET api/books/{id}
-        [HttpGet("{id}")]  // this decorator sets up this method to repond to GET requets
+        [HttpGet("{id}", Name="GetBookById")]  // this decorator sets up this method to repond to GET requets
         public ActionResult <BookReadDto> GetBookById(int id) {
 
             var bookItem = _repository.GetBookById(id);
@@ -54,7 +55,99 @@ namespace ChildrensBookList.Controllers {
 
                 return NotFound();
             }
+        }
+        
+        // POST api/books
+        [HttpPost]
+        public ActionResult<BookReadDto> CreateBook(BookCreateDto bcd) {
 
+            var bookModel = _mapper.Map<Book>(bcd);
+            _repository.CreateBook(bookModel);
+            _repository.SaveChanges();
+
+            var bookReadDto = _mapper.Map<BookReadDto>(bookModel);
+
+
+            // return Ok(bookReadDto);
+
+            // This will generate an additional header to show the route to access the
+            // newly created resource
+            return CreatedAtRoute(nameof(GetBookById), new {Id = bookReadDto.Id}, bcd);
+        }
+
+        // PUT api/books/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateBook(int id, BookUpdateDto bud) {
+
+            // does this resource actually exist?
+            var bookModel = _repository.GetBookById(id);
+
+            if(bookModel == null) {
+
+                return NotFound();
+
+            } else {
+
+                _mapper.Map(bud, bookModel);
+
+                _repository.UpdateBook(bookModel);
+
+                _repository.SaveChanges();
+
+                return NoContent();
+            }
+        }
+        
+        // PATCH api/books/{id}
+        [HttpPatch("{id}")]
+        public ActionResult PartialBookUpdate(int id, JsonPatchDocument<BookUpdateDto> patchDoc) {
+
+             // does this resource actually exist?
+            var bookModel = _repository.GetBookById(id);
+
+            if(bookModel == null) {
+
+                return NotFound();
+
+            } else {
+
+                var bookToPatch = _mapper.Map<BookUpdateDto>(bookModel); 
+
+                patchDoc.ApplyTo(bookToPatch, ModelState);
+
+                if(!TryValidateModel(bookToPatch)) {
+
+                    return ValidationProblem(ModelState);
+                }
+
+                _mapper.Map(bookToPatch, bookModel);
+
+                _repository.UpdateBook(bookModel);
+
+                _repository.SaveChanges();
+
+                return NoContent();
+            }          
+        }
+
+        // DELETE api/books/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeleteBook(int id) {
+             
+            // does this resource actually exist?
+            var bookModel = _repository.GetBookById(id);
+
+            if(bookModel == null) {
+
+                return NotFound();
+
+            } else {
+
+                _repository.DeleteBook(bookModel);
+                _repository.SaveChanges();
+
+                return NoContent();
+            }
         }
     }
 }

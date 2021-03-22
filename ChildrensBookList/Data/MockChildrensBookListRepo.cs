@@ -8,6 +8,16 @@ namespace ChildrensBookList.Data {
 
     public class MockChildrensBookListRepo : IChildrensBookListRepo
     {
+        public void CreateBook(Book b)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteBook(Book b)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Book> GetAllBooks()
         {
             var books = new List<Book> {
@@ -54,6 +64,16 @@ namespace ChildrensBookList.Data {
                 Pages=192,
                 Age=8,
                 Grade=3};
+        }
+
+        public bool SaveChanges()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateBook(Book b)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

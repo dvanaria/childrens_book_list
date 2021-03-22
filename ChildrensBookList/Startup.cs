@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 
 namespace ChildrensBookList
 {
@@ -33,7 +34,11 @@ namespace ChildrensBookList
                 (Configuration.GetConnectionString("ChildrensBookListConnection")));
 
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(s => {
+            
+                // this is to support PATCH requests
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
  
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

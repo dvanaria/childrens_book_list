@@ -15,5 +15,10 @@ namespace ChildrensBookList.Data {
 
         IEnumerable<Book> GetAllBooks();
         Book GetBookById(int id);
+        void CreateBook(Book b);
+        void UpdateBook(Book b);
+        void DeleteBook(Book b);
+        
+        bool SaveChanges();
     }
 }

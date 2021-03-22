@@ -8,7 +8,11 @@ namespace ChildrensBookList.Profiles {
 
         public BooksProfile() {
         
-            CreateMap<Book, BookReadDto>();
+            // source -> target
+            CreateMap<Book, BookReadDto>();    // GET
+            CreateMap<BookCreateDto, Book>();  // POST
+            CreateMap<BookUpdateDto, Book>();  // PUT
+            CreateMap<Book, BookUpdateDto>();  // PATCH
         }
     }
 }
