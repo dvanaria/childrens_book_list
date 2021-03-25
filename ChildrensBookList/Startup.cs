@@ -48,8 +48,8 @@ namespace ChildrensBookList
             // the registered repo implementation will be called.
             // This is used by the Dependency Injection system.
             
-                //services.AddScoped<IChildrensBookListRepo, MockChildrensBookListRepo>();
-                services.AddScoped<IChildrensBookListRepo, SqlChildrensBookListRepo>();
+            //services.AddScoped<IChildrensBookListRepo, MockChildrensBookListRepo>();
+            services.AddScoped<IChildrensBookListRepo, SqlChildrensBookListRepo>();
 
             services.AddSwaggerGen(c =>
             {

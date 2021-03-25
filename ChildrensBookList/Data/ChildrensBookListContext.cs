@@ -9,6 +9,8 @@ namespace ChildrensBookList.Data {
 
         }
 
+        // This is a representation of the Book model in the database.
+        // This is done with a DbSet property
         public DbSet<Book> Books { get; set; }
     }
 
